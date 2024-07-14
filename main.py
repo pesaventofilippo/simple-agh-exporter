@@ -3,7 +3,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from modules.utils import env
 from modules.agh_client import AGHClient
 
-PROFILER = prom.Summary('metrics_update_seconds', 'Time spent updating metrics')
+PROFILER = prom.Summary('metrics_update_seconds', 'Time spent updating metrics', namespace=env.PROMETHEUS_PREFIX)
 agh = AGHClient(
     server=env.ADGUARD_SERVER,
     username=env.ADGUARD_USERNAME,
